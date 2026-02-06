@@ -1,5 +1,5 @@
 class Animal:
-    alive = []
+    alive: list["Animal"] = []
 
     def __init__(
             self,
@@ -16,8 +16,7 @@ class Animal:
         return (
             f"{{"f"Name: {self.name},"
             f" Health: {self.health},"
-            f" Hidden: {self.hidden}}}"
-        )
+            f" Hidden: {self.hidden}}}")
 
 
 class Herbivore(Animal):
@@ -31,5 +30,5 @@ class Carnivore(Animal):
             if target.hidden is False:
                 if target.health > 0:
                     target.health -= 50
-        if target.health <= 0:
-            Animal.alive.remove(target)
+                if target.health <= 0:
+                    Animal.alive.remove(target)
